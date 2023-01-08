@@ -1,0 +1,129 @@
+@import "assets/scss/config/fonts";
+@import "assets/scss/config/reset";
+@import "assets/scss/config/vars";
+@import "assets/scss/config/utility";
+@import "assets/scss/modules/typography";
+@import "assets/scss/modules/fields";
+@import "assets/scss/modules/buttons";
+@import "assets/scss/modules/toast";
+@import "assets/scss/config/global";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.app-author {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.app-container {
+  --gap: 15px;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.accordion {
+  max-width: 900px;
+  width: 100%;
+  display: grid;
+  gap: var(--gap);
+  align-items: flex-start;
+
+  @media (min-width: 1400px) {
+    max-width: 1400px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .column {
+    display: grid;
+    gap: var(--gap);
+  }
+
+  .title {
+    text-align: center;
+
+    & + p {
+      padding: 6px 12px;
+      border-radius: 8px;
+      text-align: center;
+      background-color: var(--bcs-grey-3);
+      max-width: max-content;
+      margin-left: auto;
+      margin-right: auto;
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+
+      svg {
+        stroke: #443DF6;
+      }
+    }
+  }
+
+  &__item {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05), 0 25px 35px rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    background-color: #fff;
+    padding: var(--gap);
+    display: grid;
+    gap: var(--gap);
+  }
+
+  &__container {
+    border: 1px solid rgba(32, 72, 79, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+
+    &.open {
+      .accordion__header {
+        background-color: var(--bcs-grey-3);
+      }
+    }
+  }
+
+  &__header {
+    padding: var(--gap);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.25s ease;
+    border-bottom: 1px solid rgba(32, 72, 79, 0.1);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--bcs-grey-3);
+    }
+
+    & > * {
+      pointer-events: none;
+    }
+
+    div {
+      display: flex;
+    }
+  }
+
+  &__body {
+    padding-left: var(--gap);
+    padding-right: var(--gap);
+    height: 0;
+    transition: all 0.25s linear;
+    display: grid;
+    gap: 5px;
+  }
+
+  &__title {
+    font-weight: var(--fw-400);
+  }
+}
+
+
+
+
